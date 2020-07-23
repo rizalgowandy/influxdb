@@ -33,7 +33,7 @@ export interface FluxResult {
 export type DataID<_T> = string
 
 interface DataLookup<T> {
-  [key: string]: T
+  [key: DataID<T>]: T
 }
 
 export interface Resource<T> {
@@ -73,13 +73,13 @@ export interface Notebook {
 
 export interface NotebookListState {
   notebooks: {
-    [key: string]: Resource<NotebookState>
+    [key: DataID<Notebook>]: Resource<NotebookState>
   }
 }
 
 export interface NotebookList {
   notebooks: {
-    [key: string]: ResourceManipulator<Notebook>
+    [key: DataID<Notebook>]: ResourceManipulator<Notebook>
   }
 }
 
